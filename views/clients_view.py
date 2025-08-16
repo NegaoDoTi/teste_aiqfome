@@ -111,6 +111,14 @@ class ClientsView:
             
     async def update_client(self, client_id:int, name:str = None, email:str = None) -> JSONResponse:
         try:
+            if name == None and email == None:
+                return JSONResponse(
+                    ClientMessage(
+                        message="Deve ser fornecido ao menos o nome ou email para atualizar dados do cliente."
+                    ).model_dump(),
+                    status_code=status.HTTP_400_BAD_REQUEST
+                )
+            
             result = await self.controller.update_client(client_id, name, email)
             
             if isinstance(result, str):
