@@ -17,7 +17,7 @@ async def find_clients():
 async def register_client(form: ClientRegisterForm = Depends(ClientRegisterForm.form)):
     return await ClientsView().register_client(form.name, form.email, form.password)
     
-@clients_route.delete("/clients/{client_id}")
+@clients_route.delete("/clients/{client_id}", response_class=JSONResponse)
 async def delete_client(client_id:int):
     return await ClientsView().delete_client(client_id)
 

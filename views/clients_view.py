@@ -38,7 +38,7 @@ class ClientsView:
                 ClientMessage(
                     message="Erro inespeado ao registar cliente, contate o ADM"
                 ).model_dump(),
-                status_code=status.HTTP_500
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
     async def find_clients(self, client_id:int = None) -> JSONResponse:
@@ -77,7 +77,7 @@ class ClientsView:
                 ClientMessage(
                     message="Erro inespeado ao buscar cliente(s), contate o ADM"
                 ).model_dump(),
-                status_code=status.HTTP_500
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
             
     async def delete_client(self, client_id:int) -> JSONResponse:
@@ -106,7 +106,7 @@ class ClientsView:
                 ClientMessage(
                     message="Erro inespeado ao deletar cliente, contate o ADM"
                 ).model_dump(),
-                status_code=status.HTTP_500
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
             
     async def update_client(self, client_id:int, name:str = None, email:str = None) -> JSONResponse:
@@ -143,5 +143,5 @@ class ClientsView:
                 ClientMessage(
                     message="Erro inespeado ao atualizar cliente, contate o ADM"
                 ).model_dump(),
-                status_code=status.HTTP_500
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
