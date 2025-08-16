@@ -60,7 +60,7 @@ class FavoritesView():
                     price=result.price,
                     review=result.review
                 ).model_dump(),
-                status_code=status.HTTP_200_OK
+                status_code=status.HTTP_201_CREATED
             )
             
         except Exception:
