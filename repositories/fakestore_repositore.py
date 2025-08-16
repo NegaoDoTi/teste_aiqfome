@@ -7,7 +7,7 @@ class FakeStoreRepositore:
     
     async def find_product(self, product_id:int) -> dict | None:
         async with AsyncClient() as client_http:
-            response = client_http.get(url=f"{self.products_url}/{product_id}")
+            response = await client_http.get(url=f"{self.products_url}/{product_id}")
             
             if response.status_code == 200:
                 product = response.json()
