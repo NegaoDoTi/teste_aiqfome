@@ -10,7 +10,7 @@ class Clients(Base):
     email = Column(VARCHAR(255), unique=True, index=True, nullable=False)
     password = Column(TEXT, nullable=False)
     
-    products = relationship("Products", backref="Products", lazy=True)
+    favorites = relationship("Favorites", backref="Favorites", lazy=True)
     
     def __init__(self, name:str, email:str, password:str):
         self.name = name

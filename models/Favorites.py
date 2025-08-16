@@ -12,8 +12,8 @@ class Favorites(Base):
     price = Column(Float, nullable=False)
     review = Column(Float, nullable=False)
     
-    def __init__(self, external_id:int, client_id:str, title:str, image:str, price:float, review:float):
-        self.external_id = external_id
+    def __init__(self, product_id:int, client_id:str, title:str, image:str, price:float, review:float):
+        self.product_id = product_id
         self.client_id = client_id
         self.title = title
         self.image = image
