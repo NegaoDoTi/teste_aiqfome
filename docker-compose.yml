@@ -11,5 +11,27 @@ services:
       - ./pg_data/db:/var/lib/postgresql/data
     ports:
       - '5432:5432'
-    expose:
-      - 5432
+    networks:
+      - api_network
+    
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres_db
+    environment:
+      - PORT=${PORT}
+      - DEBUG=${DEBUG}
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRECT_KEY=${SECRECT_KEY}
+      - ALGORITHM=${ALGORITHM}
+    ports:
+      - ${PORT}:${PORT}
+    container_name : api-aiqfome
+    networks:
+      - api_network
+
+networks:
+  api_network:
+    driver: bridge
