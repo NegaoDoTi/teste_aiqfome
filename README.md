@@ -1,6 +1,6 @@
 ## Teste Tecnico Magazine Luiza Aiqfome
 
-O teste consiste em contruir um APIRestful com rotas clientes e favoritos
+O teste consiste em construir um APIRestful com rotas clientes e favoritos
 
 ## Como instalar
 
@@ -13,9 +13,11 @@ O teste consiste em contruir um APIRestful com rotas clientes e favoritos
 
 ## Documentação da API
 
-    . Link da documentação da API online: https://www.postman.com/cryosat-candidate-18825323/workspace/teste-aiqfome-api/collection/33276918-0643cef2-6b48-41fc-a60b-ac6cb60f23ec?action=share&creator=33276918
-    . Ou
-    . Apos subir o projeto acesse `http://localhost:5000/docs`
+. Link da documentação da API online: [Link](https://www.postman.com/cryosat-candidate-18825323/workspace/teste-aiqfome-api/collection/33276918-0643cef2-6b48-41fc-a60b-ac6cb60f23ec?action=share&creator=33276918)
+
+. Ou
+
+. Apos subir o projeto acesse [`http://localhost:5000/docs`](http://localhost:5000/docs)
 
 ## Tecnologias Utilizadas
 
@@ -28,4 +30,4 @@ O teste consiste em contruir um APIRestful com rotas clientes e favoritos
 
 ## Digrama do Banco de dados
 
-    . diagram/database.png
+. ![Diagrama](diagram/database.png)
