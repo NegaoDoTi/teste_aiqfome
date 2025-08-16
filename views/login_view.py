@@ -6,10 +6,23 @@ from traceback import format_exc
 import logging
 
 class LoginView():
+    """Classe responsável pela apresentação visual do login
+    """
+    
     def __init__(self):
         self.controller = LoginController()
         
     async def login_client(self, email:str, password:str) -> JSONResponse:
+        """Efeuta o login do cliente utiliando JWT
+
+        Args:
+            email (str): email do cliente
+            password (str): senha do cliente
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             result = await self.controller.login_client(email, password)
             

@@ -3,6 +3,12 @@ from sqlalchemy import Column, Integer, Float, ForeignKey
 from sqlalchemy.dialects.postgresql import TEXT
 
 class Favorites(Base):
+    """Entidade representa tablea cities no bando de dados
+
+    Args:
+        Base (_type_): _description_
+    """
+    
     __tablename__ = "favorites"
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     product_id = Column(Integer, nullable=False)

@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from schemas.favorites_schemas import FavoriteProductRegister, FavoriteUpdate
 from views.favorites_view import FavoritesView
 
+#Rota favoritos
 favorites_route = APIRouter()
 
 @favorites_route.get("/favoritos", response_class=JSONResponse)

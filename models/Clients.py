@@ -4,6 +4,12 @@ from database.base import Base
 from sqlalchemy.orm import relationship
 
 class Clients(Base):
+    """Entidade representa tablea cities no bando de dados
+
+    Args:
+        Base (_type_): _description_
+    """
+    
     __tablename__ = "clients"
     id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     name = Column(VARCHAR(255), unique=True, index=True, nullable=False)

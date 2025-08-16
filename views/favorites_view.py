@@ -8,10 +8,23 @@ from traceback import format_exc
 import logging
 
 class FavoritesView():
+    """Classe responsável pela apresentação visual do favoritos
+    """
+    
     def __init__(self):
         self.controller = FavoritesController()
         
     async def register_favorite(self, request:Request, product_id:int) -> JSONResponse:
+        """Registar um favorito
+
+        Args:
+            request (Request): requisição http
+            product_id (int): id do produto na fakestore
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             try:
                 token = request.headers["Authorization"].split("Bearer ")[-1]
@@ -74,6 +87,16 @@ class FavoritesView():
             )
             
     async def find_favorites(self, request:Request, favorite_id:int = None) -> JSONResponse:
+        """Busca um favorito ou todos os favoritos de um cliente
+
+        Args:
+            request (Request): requisição http
+            favorite_id (int, optional): id do favorito e opcional. Defaults to None.
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             try:
                 token = request.headers["Authorization"].split("Bearer ")[-1]
@@ -145,6 +168,16 @@ class FavoritesView():
             )
             
     async def delete_favorite(self, request:Request, favorite_id:int) -> JSONResponse:
+        """Deleta um favorito de um cliente
+
+        Args:
+            request (Request): requisição http
+            favorite_id (int): id do favorito
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             try:
                 token = request.headers["Authorization"].split("Bearer ")[-1]
@@ -201,6 +234,17 @@ class FavoritesView():
             )
             
     async def update_favorite(self, request:Request, favorite_id:int, product_id:int) -> JSONResponse:
+        """Altera o dados de 1 favorito de um cliente
+
+        Args:
+            request (Request): requisição http
+            favorite_id (int): id do favorito
+            product_id (int): id do produto na fakestore
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             try:
                 token = request.headers["Authorization"].split("Bearer ")[-1]

@@ -1,6 +1,8 @@
 from fastapi.testclient import TestClient
 from app import app
 
+#Testes da API
+
 cliente = {
     "name" : "Nome de teste",
     "email" : "teste@teste@gmail",

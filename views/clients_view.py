@@ -7,10 +7,24 @@ import logging
 
 
 class ClientsView:
+    """Classe responsável pela apresentação visual do clientes
+    """
+    
     def __init__(self):
         self.controller = ClientsController()
         
     async def register_client(self, client_name:str, client_email:str, client_password:str) -> JSONResponse:
+        """Registra um cliente
+
+        Args:
+            client_name (str): nome do cliente
+            client_email (str): email do cliente
+            client_password (str): senha do cliente
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             result = await self.controller.registe_client(client_name, client_email, client_password)
             
@@ -42,6 +56,15 @@ class ClientsView:
             )
 
     async def find_clients(self, client_id:int = None) -> JSONResponse:
+        """Busca por 1 cliente ou todos os cliente
+
+        Args:
+            client_id (int, optional): id do cliente é opcional. Defaults to None.
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             if not client_id:
                 result = await self.controller.find_all_clients()
@@ -81,6 +104,15 @@ class ClientsView:
             )
             
     async def delete_client(self, client_id:int) -> JSONResponse:
+        """Deleta um cliente e seus favoritos
+
+        Args:
+            client_id (int): id do cliente
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:       
             result = await self.controller.delete_client(client_id)
                 
@@ -110,6 +142,17 @@ class ClientsView:
             )
             
     async def update_client(self, client_id:int, name:str = None, email:str = None) -> JSONResponse:
+        """Altera dados de um cliente no banco de dados
+
+        Args:
+            client_id (int): id do cliente
+            name (str, optional):  nome do cliente é opcional. Defaults to None.
+            email (str, optional): email do cliente é opcional. Defaults to None.
+
+        Returns:
+            JSONResponse: resposta em formato json
+        """
+        
         try:
             if name == None and email == None:
                 return JSONResponse(

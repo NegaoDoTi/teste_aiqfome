@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from schemas.clients_schemas import ClientLoginForm
 from views.login_view import LoginView
 
+#Rota login
 login_route = APIRouter()
 
 @login_route.post("/login", response_class=JSONResponse)

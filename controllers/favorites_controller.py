@@ -4,11 +4,24 @@ from repositories.fakestore_repositore import FakeStoreRepositore
 
 
 class FavoritesController():
+    """Responsavel por controllar a rota favoritos
+    """
+    
     def __init__(self):
         self.favorites_service = FavoritesService()
         self.fakestore_repo = FakeStoreRepositore()
         
     async def register_favorite(self, product_id:int, client_id:int) -> Favorites | str:
+        """Registar um produto no favorito de um cliente no banco de dados
+
+        Args:
+            product_id (int): id do produto na api fakestore
+            client_id (int): id cliente
+
+        Returns:
+            Favorites | str: retorna string caso ocorra algo de errado
+        """
+        
         check = await self.favorites_service.find_product(product_id, client_id)
         
         if check != None:
@@ -31,6 +44,14 @@ class FavoritesController():
         return favorite
     
     async def find_all_favorites(self, client_id:int) -> list[dict]:
+        """Busca todos os produtos favoritos de 1 cliente
+
+        Args:
+            client_id (int): id cliente
+
+        Returns:
+            list[dict]: lista de Favoritos
+        """
         
         favorites = await self.favorites_service.find_all_favorites(client_id)
         
@@ -53,6 +74,15 @@ class FavoritesController():
         return data
         
     async def find_favorite(self, favorite_id:int, client_id:int) -> Favorites | str:
+        """Busca um produto favorito de um cliente
+
+        Args:
+            favorite_id (int): id do favorito
+            client_id (int): id do cliente
+
+        Returns:
+            Favorites | str: retorna string caso ocorra algo de errado
+        """
         
         favorite = await self.favorites_service.find_favorite(favorite_id, client_id)
         
@@ -62,6 +92,16 @@ class FavoritesController():
         return favorite
     
     async def delete_favorite(self, favorite_id:str, client_id:int) -> None | str:
+        """Deleta um produto favorito de um cliente
+
+        Args:
+            favorite_id (str): id do favorito
+            client_id (int): id do cliente
+
+        Returns:
+            None | str: retorna string caso ocorra algo de errado
+        """
+        
         check = await self.favorites_service.find_favorite(favorite_id, client_id)
         
         if check == None:
@@ -72,6 +112,17 @@ class FavoritesController():
         return
     
     async def update_favorite(self, favorite_id:int, product_id:int, client_id:int) -> Favorites | str:
+        """Atualiza um produto favorito de um cliente
+
+        Args:
+            favorite_id (int): id do favorito
+            product_id (int): id do produto na fakestore
+            client_id (int): id do cliente
+
+        Returns:
+            Favorites | str: retorna string caso ocorra algo de errado
+        """
+        
         check = await self.favorites_service.find_product(product_id, client_id)
         
         if check != None:

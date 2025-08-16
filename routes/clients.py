@@ -3,6 +3,7 @@ from fastapi.responses import JSONResponse
 from schemas.clients_schemas import ClientRegisterForm, ClientUpdate
 from views.clients_view import ClientsView
 
+#Rota clientes
 clients_route = APIRouter()
 
 @clients_route.get("/clientes/{client_id}", response_class=JSONResponse)
