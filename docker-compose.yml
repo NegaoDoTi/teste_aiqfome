@@ -8,7 +8,7 @@ services:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - ./pg_data/db:/var/lib/postgresql/data
     ports:
       - '5432:5432'
     expose:
