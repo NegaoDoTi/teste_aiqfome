@@ -28,4 +28,4 @@ O teste consiste em contruir um APIRestful com rotas clientes e favoritos
 
 ## Digrama do Banco de dados
 
-    ![Diagrama banco de dado](diagram_db.png)
+    . ![Diagrama](diagram/database.png)
