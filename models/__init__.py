@@ -1,2 +1,2 @@
 from .Clients import Clients
-from .Products import Products
+from .Favorites import Favorites
