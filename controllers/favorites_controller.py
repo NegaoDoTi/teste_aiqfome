@@ -4,7 +4,7 @@ from repositories.fakestore_repositore import FakeStoreRepositore
 
 
 class FavoritesController():
-    """Responsavel por controllar a rota favoritos
+    """Classe responsavel por controllar a rota favoritos
     """
     
     def __init__(self):
